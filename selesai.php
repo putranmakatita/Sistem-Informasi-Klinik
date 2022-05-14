@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'function.php';
 
 $id = $_GET['data'];
