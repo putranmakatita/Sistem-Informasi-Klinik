@@ -3,10 +3,6 @@ require 'function.php';
 $title = 'daftar';
 $id = $_GET['data'];
 $old_data = lihat($id);
-if(!isset($_SESSION['login'])){
-    header('location: login.php?m=rejection');
-    exit;
-}
 ?>
 
 <!doctype html>
@@ -21,6 +17,10 @@ if(!isset($_SESSION['login'])){
    
     <?php 
     require 'navbar.php';
+    if(!isset($_SESSION['login'])){
+        header('location: login.php?m=rejection');
+        exit;
+    }
     if(isset($_POST['sunting']) && sunting($_POST, $id)){  
         header("location: daftar-pasien.php?m=sunting");       
     }
